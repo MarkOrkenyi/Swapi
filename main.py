@@ -6,10 +6,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def render_index():
-    response = requests.get('http://swapi.co/api/planets/').json()
-    planets = response['results']
-    next_href = response['next']
-    return render_template('index.html', planets=planets, next_href=next_href)
+    return render_template('index.html')
 
 
 def main():
