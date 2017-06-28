@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SW api - Si week 5</title>
+    <script src='https://code.jquery.com/jquery-3.1.0.min.js' defer></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30="
+        crossorigin="anonymous" defer></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous" defer>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='main.css')}}" defer>
+    <script src="{{url_for('static', filename='main.js')}}" defer></script>
+
+
+</head>
+
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="/">Planet list</a></li>
+                <li><a href="#">Voting statistics</a></li>
+                <li><a href="#">Registration</a></li>
+                <li><a href="#">Login</a></li>
+                <li><a href="#">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <h1>Star Wars universe planets</h1>
+        <div class="row">
+            <button type="button" class="btn btn-primary" id="prev_btn" value="/">Previous</button>
+            <button type="button" class="btn btn-primary" id="next_btn" value="{{next_href}}">Next</button>
+        </div>
+        <div class="row">
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Diameter</th>
+                            <th>Climate</th>
+                            <th>Terrain</th>
+                            <th>Surface Water Percentage</th>
+                            <th>Population</th>
+                            <th>Residents</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {%for planet in planets%}
+                        <tr>
+                            <td>{{planet.get('name')}}</td>
+                            <td>{{planet.get('diameter')}}</td>
+                            <td>{{planet.get('climate')}}</td>
+                            <td>{{planet.get('terrain')}}</td>
+                            <td>{{planet.get('surface_water')}}</td>
+                            <td>{{planet.get('population')}}</td>
+                            <td>{{planet.get('residents')}}</td>
+                        </tr>
+                        {%endfor%}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
