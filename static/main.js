@@ -50,7 +50,8 @@ function residents_modal(residents_links) {
     };
     $(".table.table-bordered#residents tbody").empty();
     $(".table.table-bordered#residents tbody").append(residents_table);
-    $("#myModal").modal();
+    $("#residentModal").modal();
+
 };
 
 $(document).ready(function () {
@@ -67,3 +68,4 @@ $(".container button").click(function () {
     next_table(api_href);
     return false;
 });
+
