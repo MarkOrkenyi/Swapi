@@ -1,0 +1,14 @@
+#loggedIn{
+    position:relative;
+    float:right;
+    color:gray;
+    top:15px;
+    font-weight: bold;
+}
+html body nav.navbar.navbar-default div.container-fluid ul.nav.navbar-nav li a#logout{
+    cursor:pointer;
+}
+
+html body div.container div.row button{
+    margin-bottom:20px;
+}
