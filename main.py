@@ -1,5 +1,6 @@
 from flask import Flask, render_template, redirect, request
 import sql_queries
+import time
 app = Flask(__name__)
 
 
@@ -17,8 +18,18 @@ def render_login():
 def login_user():
     username = request.form['username_login']
     password = request.form['password_login']
-    sql_queries.login(username, password)
-    return redirect("/")
+    try:
+        users_psw = sql_queries.login(username, password)
+    except IndexError:
+        loginStatus = "invalid"
+        return render_template("login.html", loginStatus=loginStatus)
+    if password == users_psw:
+        loginStatus = "valid"
+        action = "login"
+        return render_template('user_status.html', loginUsername=username, loginStatus=loginStatus, action=action)
+    else:
+        loginStatus = "invalid"
+        return render_template("login.html", loginStatus=loginStatus)
 
 
 @app.route("/register")
@@ -30,8 +41,9 @@ def render_register():
 def register_user():
     username = request.form['username_register']
     password = request.form['password_register']
+    action = "registration"
     sql_queries.register(username, password)
-    return redirect("/")
+    return render_template('user_status.html', loginUsername=username, action=action)
 
 
 def main():
