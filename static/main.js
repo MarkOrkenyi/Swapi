@@ -18,7 +18,17 @@ function display_planets(planets, next_href, prev_href) {
         } else {
             var residents_html = '<td>No known residents</td>'
         }
-        html_table.push('<tr><td>' + planets[i].name + '</td><td>' + planets[i].diameter + '</td><td>' + planets[i].climate + '</td><td>' + planets[i].terrain + '</td><td>' + planets[i].surface_water + '</td><td>' + planets[i].population + '</td>' + residents_html + '</tr>');
+        if (planets[i].population > 0) {
+            var population = Number(planets[i].population).toLocaleString()
+        } else {
+            var population = planets[i].population
+        }
+        if (planets[i].diameter > 0) {
+            var diameter = Number(planets[i].diameter).toLocaleString()
+        } else {
+            var diameter = planets[i].diameter
+        }
+        html_table.push('<tr><td>' + planets[i].name + '</td><td>' + diameter + ' km' + '</td><td>' + planets[i].climate + '</td><td>' + planets[i].terrain + '</td><td>' + planets[i].surface_water + '%' + '</td><td>' + population + ' people' + '</td>' + residents_html + '</tr>');
     };
     $(".table.table-bordered#planets tbody").empty();
     $(".table.table-bordered#planets tbody").append(html_table);
