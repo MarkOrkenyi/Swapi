@@ -21,11 +21,11 @@
         <div class="container-fluid">
             <ul class="nav navbar-nav">
                 <li class="active"><a href="/">Planet list</a></li>
-                <li><a href="#">Voting statistics</a></li>
                 <li><a href="/register">Registration</a></li>
                 <li><a href="/login">Login</a></li>
-                <li><a id="#logout" href="/">Logout</a></li>
+                <li><a id="logout">Logout</a></li>
             </ul>
+            <a href="/login" id="loggedIn">Login or Register</a>
         </div>
     </nav>
     <div class="container">
@@ -46,7 +46,6 @@
                             <th>Surface Water Percentage</th>
                             <th>Population</th>
                             <th>Residents</th>
-                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -84,7 +83,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-default close" data-dismiss="modal">Close</button>
                     </div>
                 </div>
 
